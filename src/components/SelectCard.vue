@@ -20,7 +20,7 @@ export default {
 
 <template>
     <div class="container">
-        <select name="cars" id="cars">
+        <select name="cars" id="cars" v-model="store.statusValue" @change="$emit('select')">
             <option></option>
             <option v-for="select in store.ListArchetype" :key="select">{{ select.archetype_name }}</option>
 

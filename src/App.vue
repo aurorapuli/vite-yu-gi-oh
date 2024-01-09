@@ -22,6 +22,11 @@ export default {
   },
   methods: {
     getCard() {
+
+      if (store.statusValue !== "") {
+        store.apiURL += `?${store.apiStatusParamentrer}= ${store.statusValue}`
+      }
+
       axios
         .get(store.apiURL)
         .then((res => {
@@ -57,7 +62,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <SelectCard />
+    <SelectCard @select="getCard" />
     <Content />
 
   </main>
