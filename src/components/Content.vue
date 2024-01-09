@@ -1,11 +1,20 @@
 <script>
 import ListCard from './ListCard.vue'
+
+// importo store
+import { store } from '../store';
+
 export default {
+    name: "Content",
     components: {
         ListCard
 
     },
-    name: "Content"
+    data() {
+        return {
+            store,
+        }
+    }
 }
 
 </script>
@@ -19,7 +28,11 @@ export default {
                 <p>Found 39 cards</p>
             </div>
             <div class="row">
-                <ListCard />
+                <div v-for="card in store.ListCard" :key="card.id" class="card">
+                    <ListCard :info="card" />
+
+                </div>
+
 
             </div>
         </div>
@@ -57,8 +70,17 @@ export default {
     .row {
         display: flex;
         flex-wrap: wrap;
+
+        .card {
+            width: calc((100% / 5) - 20px);
+            margin: 0 10px 20px 10px;
+            text-align: center;
+            font-size: 15px;
+            background-color: $color;
+            padding-bottom: 20px;
+        }
+
+
     }
-
-
 }
 </style>

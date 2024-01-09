@@ -1,37 +1,37 @@
 <script>
+
+
 export default {
-    name: "ListCard"
+    name: "ListCard",
+
+    props: {
+        info: Object
+    }
 }
+
 
 </script>
 
 <template>
-    <div class="img">
-        <img src="https://www.nationalgeographic.it/upload/ngi-hero/cover-1700127134465-Gatto.jpeg" alt="">
-        <div class="text">
-            "A" CELL BREEDING DEVICE
-        </div>
-        <div class="status">
-            Alien
-        </div>
+    <img :src="info.card_images[0].image_url" alt="">
+    <div class="text">
+        {{ info.name }}
+    </div>
+    <div class="status">
+        {{ info.archetype }}
     </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/_variables.scss' as *;
 
-.img {
-    width: calc((100% / 5) - 20px);
-    margin: 0 10px 20px 10px;
-    text-align: center;
-    font-size: 15px;
-    background-color: $color;
-    padding-bottom: 20px;
 
-    .text {
-        margin: 15px 0;
-        color: white;
-    }
+img {
+    max-width: 100%;
+}
 
+.text {
+    margin: 15px 0;
+    color: white;
 }
 </style>
