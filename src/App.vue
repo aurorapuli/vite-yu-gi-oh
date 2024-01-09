@@ -1,6 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
 import Content from './components/Content.vue'
+import SelectCard from './components/SelectCard.vue'
 // importo axios
 import axios from 'axios';
 
@@ -10,7 +11,8 @@ import { store } from './store';
 export default {
   components: {
     AppHeader,
-    Content
+    Content,
+    SelectCard
 
   },
   data() {
@@ -29,11 +31,23 @@ export default {
         .catch((err) => {
           console.log("Errori", err);
         })
-    }
+    },
+    getArchetype() {
+      axios
+        .get(store.apiArchetype)
+        .then((res => {
+          console.log(res.data);
+          store.ListArchetype = res.data;
+        }))
+        .catch((err) => {
+          console.log("Errori", err);
+        })
+    },
 
   },
   created() {
     this.getCard();
+    this.getArchetype();
 
   }
 }
@@ -43,6 +57,7 @@ export default {
 <template>
   <AppHeader />
   <main>
+    <SelectCard />
     <Content />
 
   </main>

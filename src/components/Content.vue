@@ -21,8 +21,6 @@ export default {
 
 <template>
     <div class="container">
-
-        <div class="menu">Alien</div>
         <div class="list-card">
             <div class="found-card">
                 <p>Found 39 cards</p>
@@ -46,14 +44,6 @@ export default {
 
     width: 80%;
     margin: 0 auto;
-    padding: 20px 0;
-
-    .menu {
-        width: 120px;
-        background-color: white;
-        padding: 5px;
-        border-radius: 5px;
-    }
 
     .list-card {
         background-color: white;
