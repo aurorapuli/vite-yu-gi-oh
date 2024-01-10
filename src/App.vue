@@ -23,8 +23,8 @@ export default {
   methods: {
     getCard() {
 
-      if (store.statusValue !== "") {
-        store.apiURL += `?${store.apiStatusParamentrer}= ${store.statusValue}`
+      if (store.statusValue) {
+        store.apiURL += `&${store.apiStatusParamentrer}=${store.statusValue}`
       }
 
       axios
